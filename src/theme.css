@@ -1,0 +1,305 @@
+:root {
+  --surface: #fcfcfb;
+  --page: #f9f9f7;
+  --ink: #0b0b0b;
+  --ink-secondary: #52514e;
+  --ink-muted: #898781;
+  --gridline: #e1e0d9;
+  --border-hairline: #c3c2b7;
+
+  --series-coin: #2a78d6;
+  --series-altin: #eb6834;
+  --series-borsa: #1baf7a;
+
+  --good: #0ca30c;
+  --critical: #d03b3b;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+
+  --shadow-card: 0 1px 2px rgba(11, 11, 11, 0.04), 0 1px 1px rgba(11, 11, 11, 0.03);
+  --shadow-card-hover: 0 6px 20px rgba(11, 11, 11, 0.09), 0 2px 6px rgba(11, 11, 11, 0.05);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* ---------- Shell / navigation ---------- */
+
+.app-shell {
+  padding: var(--space-8);
+  min-height: 100vh;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.app-title {
+  color: var(--ink);
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: var(--space-1);
+  background: var(--surface);
+  border: 1px solid var(--gridline);
+  border-radius: var(--radius-md);
+  padding: var(--space-1);
+}
+
+.nav-tab {
+  padding: 0.55rem 1.15rem;
+  border-radius: calc(var(--radius-md) - 3px);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: transparent;
+  color: var(--ink-secondary);
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.nav-tab:hover:not(.nav-tab-active) {
+  background: var(--page);
+  color: var(--ink);
+}
+
+.nav-tab-active {
+  color: white;
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--gridline);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-card);
+}
+
+.card-interactive {
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 180ms ease, transform 180ms ease;
+}
+
+.card-interactive:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.card-title {
+  margin: 0 0 var(--space-3);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.card-toolbar {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-5);
+}
+
+/* ---------- Form controls ---------- */
+
+.input,
+.select {
+  padding: 0.5rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-hairline);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--series-coin);
+  box-shadow: 0 0 0 3px rgba(42, 120, 214, 0.15);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  font-family: inherit;
+  transition: filter 120ms ease, transform 100ms ease, background-color 150ms ease, border-color 150ms ease,
+    color 150ms ease;
+}
+
+.btn:hover {
+  filter: brightness(1.08);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: none;
+  transform: none;
+}
+
+.btn-primary {
+  background: var(--series-coin);
+  color: white;
+}
+
+.btn-altin {
+  background: var(--series-altin);
+  color: white;
+}
+
+.btn-borsa {
+  background: var(--series-borsa);
+  color: white;
+}
+
+.btn-good {
+  background: var(--good);
+  color: white;
+}
+
+.btn-critical {
+  background: var(--critical);
+  color: white;
+}
+
+.btn-outline {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--border-hairline);
+}
+
+.btn-outline:hover {
+  background: var(--page);
+  filter: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-muted);
+  border: none;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+.btn-ghost:hover {
+  color: var(--critical);
+  filter: none;
+}
+
+.btn-toggle {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--border-hairline);
+  padding: 0.5rem 0.75rem;
+}
+
+.btn-toggle:hover {
+  filter: none;
+  border-color: var(--ink-muted);
+}
+
+.btn-toggle-active-good {
+  border: 2px solid var(--good);
+}
+
+.btn-toggle-active-critical {
+  border: 2px solid var(--critical);
+}
+
+/* ---------- Text tokens ---------- */
+
+.text-muted {
+  color: var(--ink-muted);
+}
+
+.text-secondary {
+  color: var(--ink-secondary);
+}
+
+.text-good {
+  color: var(--good);
+}
+
+.text-critical {
+  color: var(--critical);
+}
+
+/* ---------- Numerals ---------- */
+
+/* Large standalone values (hero numbers, stat-tile values) read better with the
+   font's default proportional figures. Tabular figures are reserved for rows
+   that must align vertically (lists, table-like rows). */
+.table-num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Misc ---------- */
+
+.divider-v {
+  width: 1px;
+  height: 28px;
+  background: var(--gridline);
+}
+
+.row {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--gridline);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
